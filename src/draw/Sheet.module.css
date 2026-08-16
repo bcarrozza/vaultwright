@@ -1,0 +1,26 @@
+.sheet {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #f4f1ea;
+}
+
+.paper {
+  fill: #f4f1ea;
+}
+
+.ground {
+  stroke: #1a1a1a;
+  stroke-width: 0.04;
+}
+
+.scale {
+  stroke: #1a1a1a;
+  stroke-width: 0.03;
+}
+
+.label {
+  fill: #1a1a1a;
+  font-size: 0.28px;
+  font-family: system-ui, sans-serif;
+}

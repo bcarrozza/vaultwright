@@ -1,0 +1,61 @@
+.panel {
+  width: 16rem;
+  flex-shrink: 0;
+  padding: 1rem;
+  background: #1f2430;
+  color: #f4f1ea;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-family: system-ui, sans-serif;
+  font-size: 0.9rem;
+}
+
+.title {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.fieldset {
+  border: 1px solid #4a5160;
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.note {
+  margin: 0;
+  color: #b8b3a8;
+  font-size: 0.8rem;
+}
+
+.row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.file {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #8a8478;
+  cursor: pointer;
+}
+
+.file input {
+  display: none;
+}
+
+.error {
+  color: #f2b5b5;
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}

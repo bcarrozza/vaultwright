@@ -1,0 +1,52 @@
+{
+  "requirementsVersion": "1.4",
+  "units": "us-customary",
+  "g": 9.81,
+  "sliceDepth": 1,
+  "sliceZMode": "header-course",
+  "bondPattern": "common",
+  "wallConstruction": "solid",
+  "jointMode": "lime",
+  "loadFactorsOn": true,
+  "soilPreset": "stiff-clay-firm-sand",
+  "frostLineDepth": 0.9144,
+  "foundationDepthDefault": 1.2192,
+  "riseCapMode": "semicircle",
+  "buttressFaceMode": "vertical",
+  "coreBinderDefault": "dry",
+  "unitCatalogId": "us-modular-brick",
+  "allowCutCourse": false,
+  "wholeUnitsOnly": false,
+  "vertices": [
+    { "id": "v0", "x": 0, "y": 0 },
+    { "id": "v1", "x": 0.6096, "y": 0 },
+    { "id": "v2", "x": 0.6096, "y": 1.8288 },
+    { "id": "v3", "x": 0, "y": 1.8288 }
+  ],
+  "edges": [
+    { "id": "e0", "kind": "line", "start": "v0", "end": "v1", "constraints": ["horizontal"] },
+    { "id": "e1", "kind": "line", "start": "v1", "end": "v2", "constraints": ["vertical"] },
+    { "id": "e2", "kind": "line", "start": "v2", "end": "v3", "constraints": ["horizontal"] },
+    { "id": "e3", "kind": "line", "start": "v3", "end": "v0", "constraints": ["vertical"] }
+  ],
+  "faces": [
+    {
+      "id": "f0",
+      "regionKind": "masonryWall",
+      "materialId": "fired-brick",
+      "loop": ["e0", "e1", "e2", "e3"],
+      "lockedThickness": true
+    }
+  ],
+  "loadCases": [],
+  "materials": [
+    {
+      "id": "fired-brick",
+      "name": "Fired brick",
+      "density": 1800,
+      "mu": 0.6,
+      "cohesion": 50000,
+      "allowableCompression": 5000000
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+---
+description: Arch Optimizer spec-first workflow. Always apply in this repo.
+alwaysApply: true
+---
+
+# Arch Optimizer
+
+Planning/spec repo. Do not write application code until Brian asks to build.
+
+- Product: `REQUIREMENTS.md` (1.4, DEC-001–DEC-052). Implementation: `docs/adr/` (ADR-001–005).
+- Agents: `AGENTS.md` → `STATUS.md` → current `docs/slices/Sxx.md` → cited sections only.
+- Never contradict a `DEC-*` or `ADR-*`. Product edits go in the locked table + decision log.
+- JSON: `requirementsVersion: "1.4"`, SI numbers, names frozen in `project.schema.json`.
+- No auto-generated cores/skins. Dry cores must not fake a wide middle-third kern.

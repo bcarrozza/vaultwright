@@ -1,0 +1,12 @@
+---
+description: Vertical slices, tests as done-when, compact at 100k tokens.
+alwaysApply: true
+---
+
+# Agent loops
+
+- One slice at a time (`docs/slices/`). Do not start S(n+1) until S(n) tests are green and `STATUS.md` is updated.
+- Done-when is the slice test command plus `docs/fixtures/` expected.json — not a chat opinion.
+- Near **100k tokens**, or before ending a session: update `STATUS.md`, then stop. After compact, do not re-read all of REQUIREMENTS.md or reopen a green slice.
+- Do not re-pick TypeScript/Vite/React/SVG/Vitest or Planck.js in chat (ADR-001, ADR-004).
+- Commit only if Brian asks.

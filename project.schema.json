@@ -1,0 +1,290 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arch-optimizer.local/project.schema.json",
+  "title": "Arch Optimizer project (requirementsVersion 1.4)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "requirementsVersion",
+    "units",
+    "sliceDepth",
+    "vertices",
+    "edges",
+    "faces"
+  ],
+  "properties": {
+    "requirementsVersion": { "const": "1.4" },
+    "units": {
+      "type": "string",
+      "enum": ["us-customary", "metric"],
+      "description": "Display only. Stored numbers are SI (ADR-003)."
+    },
+    "g": { "type": "number", "default": 9.81 },
+    "sliceDepth": { "type": "number", "exclusiveMinimum": 0, "default": 1 },
+    "sliceZMode": {
+      "type": "string",
+      "enum": ["header-course", "stretcher-course", "custom"],
+      "default": "header-course"
+    },
+    "sliceZ": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Metres along Z within one bond period; used when sliceZMode is custom."
+    },
+    "bondPattern": {
+      "type": "string",
+      "enum": ["english", "flemish", "common", "ashlar-through"],
+      "default": "common"
+    },
+    "wallConstruction": {
+      "type": "string",
+      "enum": ["solid", "skins-and-core"],
+      "default": "solid"
+    },
+    "jointMode": { "type": "string", "enum": ["dry", "lime"], "default": "lime" },
+    "loadFactorsOn": { "type": "boolean", "default": true },
+    "soilPreset": {
+      "type": "string",
+      "enum": ["soft-clay", "stiff-clay-firm-sand", "dense-sand-gravel", "bedrock"],
+      "default": "stiff-clay-firm-sand"
+    },
+    "frostLineDepth": { "type": "number", "minimum": 0, "default": 0.9144 },
+    "foundationDepthDefault": { "type": "number", "minimum": 0, "default": 1.2192 },
+    "riseCapMode": {
+      "type": "string",
+      "enum": [
+        "percent-sagitta",
+        "percent-span",
+        "sagitta-plus-span",
+        "semicircle",
+        "deck-only",
+        "shape-only"
+      ],
+      "default": "semicircle"
+    },
+    "riseCapPercent": { "type": "number" },
+    "buttressFaceMode": {
+      "type": "string",
+      "enum": ["vertical", "taper", "tiered"],
+      "default": "vertical"
+    },
+    "coreBinderDefault": {
+      "type": "string",
+      "enum": ["dry", "lime-bound"],
+      "default": "dry"
+    },
+    "unitCatalogId": { "type": "string", "default": "us-modular-brick" },
+    "orientations": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ring": {
+          "type": "string",
+          "enum": ["rowlock-header", "on-edge", "bed", "stretcher-barrel", "ashlar"],
+          "default": "ashlar"
+        }
+      }
+    },
+    "allowCutCourse": { "type": "boolean", "default": false },
+    "wholeUnitsOnly": { "type": "boolean", "default": false },
+    "vertices": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/vertex" }
+    },
+    "edges": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/edge" }
+    },
+    "faces": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/face" }
+    },
+    "loadCases": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/loadCase" }
+    },
+    "materials": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/material" }
+    },
+    "archMembers": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/archMember" }
+    },
+    "foundations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/foundation" }
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/warning" }
+    }
+  },
+  "$defs": {
+    "vertex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "x", "y"],
+      "properties": {
+        "id": { "type": "string" },
+        "x": { "type": "number", "description": "metres, +x right" },
+        "y": { "type": "number", "description": "metres, +y up; ground is y=0" }
+      }
+    },
+    "edge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "start", "end"],
+      "properties": {
+        "id": { "type": "string" },
+        "kind": { "type": "string", "enum": ["line", "arch"] },
+        "start": { "type": "string" },
+        "end": { "type": "string" },
+        "archFamily": { "type": "string", "enum": ["circular", "funicular"] },
+        "rise": { "type": "number", "description": "sagitta in metres, arch edges" },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["horizontal", "vertical", "perpendicular", "equal-length"]
+          }
+        }
+      }
+    },
+    "face": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "regionKind", "loop"],
+      "properties": {
+        "id": { "type": "string" },
+        "regionKind": {
+          "type": "string",
+          "enum": [
+            "void",
+            "archOpening",
+            "archRing",
+            "masonryWall",
+            "masonryPier",
+            "fill",
+            "rubble",
+            "deck",
+            "buttress",
+            "foundation",
+            "centering"
+          ]
+        },
+        "materialId": { "type": "string" },
+        "loop": {
+          "type": "array",
+          "minItems": 3,
+          "items": { "type": "string" },
+          "description": "Edge ids, CCW, closed."
+        },
+        "lockedThickness": { "type": "boolean" },
+        "ringThickness": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Radial t in metres for archRing."
+        },
+        "leftoverHeight": { "type": "number" },
+        "coreBinder": { "type": "string", "enum": ["dry", "lime-bound"] },
+        "skinThicknessWythes": { "type": "number" },
+        "unitCatalogId": {
+          "type": "string",
+          "description": "Optional override (DEC-041 mixed catalogs). Else project.unitCatalogId."
+        },
+        "userEdited": { "type": "boolean" },
+        "units3D": { "type": "array" },
+        "stones2D": { "type": "array" }
+      }
+    },
+    "loadCase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind"],
+      "properties": {
+        "id": { "type": "string" },
+        "kind": {
+          "type": "string",
+          "enum": ["dead-only", "dead-plus-uniform-live", "dead-plus-asymmetric-live"]
+        },
+        "livePreset": {
+          "type": "string",
+          "enum": ["dwelling", "crowd", "roof-snow", "custom"]
+        },
+        "uniformLivePa": { "type": "number" },
+        "patchLoads": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["x", "width", "forceN"],
+            "properties": {
+              "x": { "type": "number" },
+              "width": { "type": "number", "minimum": 0.3 },
+              "forceN": { "type": "number" }
+            }
+          }
+        }
+      }
+    },
+    "material": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "density"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "density": { "type": "number", "exclusiveMinimum": 0 },
+        "mu": { "type": "number", "minimum": 0 },
+        "cohesion": { "type": "number", "minimum": 0 },
+        "allowableCompression": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "archMember": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": { "type": "string" },
+        "color": { "type": "string" },
+        "faceId": { "type": "string" },
+        "t": { "type": "number" },
+        "N": { "type": "integer", "minimum": 1 },
+        "orientation": { "type": "string" },
+        "Nv": { "type": "integer", "minimum": 1 },
+        "vaultBond": {
+          "type": "string",
+          "enum": ["rowlock-rings", "stretcher-barrel", "ashlar-ring"]
+        },
+        "r0": { "type": "number" },
+        "rOpt": { "type": "number" }
+      }
+    },
+    "foundation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "autoGenerated", "userEdited"],
+      "properties": {
+        "id": { "type": "string" },
+        "faceId": { "type": "string" },
+        "autoGenerated": { "type": "boolean" },
+        "userEdited": { "type": "boolean" },
+        "bearing": { "type": "number" },
+        "resultantOffset": { "type": "number" },
+        "spreadRisk": { "type": "boolean" }
+      }
+    },
+    "warning": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "severity", "message"],
+      "properties": {
+        "code": { "type": "string" },
+        "severity": { "type": "string", "enum": ["info", "amber", "red"] },
+        "message": { "type": "string" },
+        "targetId": { "type": "string" }
+      }
+    }
+  }
+}

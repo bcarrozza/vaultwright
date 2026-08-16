@@ -1,0 +1,33 @@
+{
+  "kern": "full-ring-and-wall",
+  "coreDrawn": false,
+  "loadCaseForReference": "dead-only-unfactored",
+  "density_ring": 2400,
+  "Nv": 7,
+  "t_m": 0.2032,
+  "R_centerline_m": 1.524,
+  "sliceDepth_m": 1,
+  "W_each_N": 3272.207,
+  "W_tot_N": 22905.448,
+  "threeHinged": {
+    "H_N": 18631.581,
+    "VA_N": 11452.724,
+    "VB_N": 11452.724,
+    "toleranceRel": 0.02,
+    "eccentricityAtHinges_m": 0,
+    "springingAngleFromVertical_deg": 58.421,
+    "note": "Hinges on centerline at springings and crown. Haunch e must be reported; do not assume all-green."
+  },
+  "factoredDeadOnly_1_4D": {
+    "H_N": 26084.214,
+    "toleranceRel": 0.02,
+    "note": "Same geometry; weights × 1.4 before the funicular."
+  },
+  "designH": {
+    "method": "kern-search DEC-051 / ADR-005",
+    "passRule": "all joints green, no slide, no crush",
+    "amberIsNotPass": true
+  },
+  "lineContinuesDownWalls": true,
+  "colorPerBrick": false
+}

@@ -1,0 +1,37 @@
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.modes {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.4rem 0.6rem;
+  background: #2c3340;
+}
+
+.modes button {
+  font: inherit;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid #5c6574;
+  background: #3a4252;
+  color: #f4f1ea;
+  cursor: pointer;
+}
+
+.active {
+  background: #f4f1ea !important;
+  color: #1f2430 !important;
+}
+
+.sheetWrap {
+  flex: 1;
+  min-height: 0;
+}

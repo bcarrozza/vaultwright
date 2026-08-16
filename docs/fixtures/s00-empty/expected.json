@@ -1,0 +1,13 @@
+{
+  "requirementsVersion": "1.4",
+  "displayUnits": "us-customary",
+  "storage": "SI",
+  "groundLineY": 0,
+  "vertexCount": 0,
+  "faceCount": 0,
+  "sliceDepth_m": 1,
+  "jointMode": "lime",
+  "bondPattern": "common",
+  "coreBinderDefault": "dry",
+  "schema": "project.schema.json"
+}

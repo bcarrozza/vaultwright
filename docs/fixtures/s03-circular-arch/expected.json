@@ -1,0 +1,18 @@
+{
+  "span_m": 3.048,
+  "span_ft": 10,
+  "r0_m": 1.524,
+  "t_m": 0.2032,
+  "t_in": 8,
+  "Nv": 7,
+  "NvOdd": true,
+  "N": 1,
+  "vaultBond": "ashlar-ring",
+  "jointAngle_deg": 25.7142857143,
+  "jointsNormalToCurve": true,
+  "keystoneCenteredInDefaultSlice": true,
+  "overlapCount": 0,
+  "voussoirsInSlice": 7,
+  "fillFaces": 0,
+  "voidLocked": true
+}

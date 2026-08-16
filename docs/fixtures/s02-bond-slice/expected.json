@@ -1,0 +1,17 @@
+{
+  "bondPattern": "common",
+  "bottomCourse": "header",
+  "sliceZMode": "header-course",
+  "coursesFilled": 27,
+  "headerCourseIndices": [0, 6, 12, 18, 24],
+  "headerCourses": 5,
+  "stretcherCourses": 22,
+  "headerBlocksPerCourse": 3,
+  "stretcherBlocksPerCourse": 6,
+  "slicePolygonCount": 147,
+  "overlapCount": 0,
+  "collarJointWarningOnHeaderSlice": false,
+  "collarJointWarningOnStretcherSlice": true,
+  "stoneActual_in": { "length": 7.625, "width": 3.625, "height": 2.25 },
+  "joint_in": 0.375
+}

@@ -1,0 +1,20 @@
+{
+  "drawnHeight_m": 1.8288,
+  "drawnHeight_in": 72,
+  "drawnThickness_m": 0.6096,
+  "drawnThickness_in": 24,
+  "jointMode": "lime",
+  "courseHeight_in": 2.625,
+  "snap": "floor",
+  "coursesFilled": 27,
+  "filledHeight_in": 70.875,
+  "filledHeight_m": 1.800225,
+  "leftoverHeight_in": 1.125,
+  "leftoverHeight_m": 0.028575,
+  "toNextCourse_in": 1.5,
+  "toNextCourse_m": 0.0381,
+  "stretcherWythes": 6,
+  "headersThroughThickness": 3,
+  "regionKind": "masonryWall",
+  "danglingEdges": false
+}
