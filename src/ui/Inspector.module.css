@@ -49,13 +49,43 @@
   display: none;
 }
 
+.metric {
+  margin: 0;
+}
+
+.warnings {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: #f2b5b5;
+}
+
+.red {
+  color: #f2b5b5;
+}
+
+.amber {
+  color: #f0d48a;
+}
+
 .error {
   color: #f2b5b5;
   margin: 0;
+}
+
+select,
+input[type="text"] {
+  font: inherit;
+  width: 100%;
+  margin-top: 0.15rem;
 }
 
 button {
   font: inherit;
   padding: 0.25rem 0.5rem;
   cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

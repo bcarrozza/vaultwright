@@ -1,0 +1,19 @@
+/** Frozen warning codes (docs/warning-codes.md). */
+export const OVERLAP = "OVERLAP";
+export const COLLAR_JOINT = "COLLAR_JOINT";
+export const THRUST_AMBER = "THRUST_AMBER";
+export const THRUST_RED = "THRUST_RED";
+export const SLIDING = "SLIDING";
+export const CRUSHING = "CRUSHING";
+export const VOID_LOCK = "VOID_LOCK";
+export const BUTTRESS_EXCESS = "BUTTRESS_EXCESS";
+export const GROUND_ANGLE_AMBER = "GROUND_ANGLE_AMBER";
+export const GROUND_ANGLE_RED = "GROUND_ANGLE_RED";
+export const LOAD_UNBALANCE = "LOAD_UNBALANCE";
+export const RING_OVERLAP = "RING_OVERLAP";
+export const FROST_SHALLOW = "FROST_SHALLOW";
+export const NO_FOUNDATION = "NO_FOUNDATION";
+export const FOOTING_USER_EDITED = "FOOTING_USER_EDITED";
+export const PHYSICS_WARN = "PHYSICS_WARN";
+export const PHYSICS_FAIL = "PHYSICS_FAIL";
+export const SCOPE_2D = "SCOPE_2D";

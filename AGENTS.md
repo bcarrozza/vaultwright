@@ -18,11 +18,11 @@ Do **not** paste or re-read the whole requirements file every turn. Humans: [REA
 - `MUST` / `MUST NOT` / `SHOULD` / `MAY` in the requirements are binding.
 - **v1** is a desktop web app. **Later** items stay out of the first build.
 - JSON saves must include `requirementsVersion: "1.4"` and validate against [project.schema.json](project.schema.json).
-- When implementing, follow [docs/slices/](docs/slices/README.md) **in order** (indexed in REQUIREMENTS **§23**). One slice per loop. Do not start S(n+1) until S(n) tests are green and STATUS is updated.
+- When implementing, follow [docs/slices/](docs/slices/README.md) **in order** (indexed in REQUIREMENTS **§23**). One slice at a time. Do not start S(n+1) until S(n) tests are green and STATUS is updated. **Fail → STATUS and stop. Green → STATUS, compact, continue S(n+1).** Do not wait for a new Build prompt between slices.
 
 ## Compaction (~100k tokens)
 
-Follow [docs/compaction.md](docs/compaction.md). **Before** compact or ending a session: update STATUS.md. After compact: read this file, STATUS, current slice only. Tests + STATUS are memory. Do not reopen a green slice. Do not re-derive DECs/ADRs.
+Follow [docs/compaction.md](docs/compaction.md). **Before** compact: update STATUS.md. After compact: read this file, STATUS, current slice only. Tests + STATUS are memory. Do not reopen a green slice. Do not re-derive DECs/ADRs. After a **green** slice, compact then continue S(n+1). Mid-slice at ~100k: compact and resume the **same** slice.
 
 ## Do not
 

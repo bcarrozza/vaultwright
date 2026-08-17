@@ -1,0 +1,26 @@
+{
+  "flyingButtresses": false,
+  "faceMode": "vertical",
+  "taperMaxSlope": 0.3333333333333333,
+  "tierStepCourses": 4,
+  "tierStepDepthWythes": 1,
+  "tierStepHeight_m": 0.2667,
+  "tierStepDepth_m": 0.1016,
+  "wallThickness_m": 1.8288,
+  "userGroundWidth_m": 1.8288,
+  "minGreenGroundWidth_m": 0.87591,
+  "suggestedGroundWidth_m": 1.8288,
+  "extraAtGround_m": 0,
+  "wallThicknessUnchanged": true,
+  "H_N": 9129.475,
+  "V_ground_N": 75091.161,
+  "groundAngleFromVertical_deg": 6.932,
+  "excess": true,
+  "warnings": [
+    {
+      "code": "BUTTRESS_EXCESS",
+      "severity": "info",
+      "message": "Buttress thicker than needed (ground width > 120% of minimum green width)."
+    }
+  ]
+}

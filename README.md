@@ -50,6 +50,6 @@ Do not leave the new rule only in chat.
 
 ## Building
 
-Not started. When you want code, say **build** and the agent follows [S00](docs/slices/S00.md), then each later slice only after that test is green. Do not skip the spec.
+When you want code, say **build**. The agent starts at [S00](docs/slices/S00.md). On a green slice it compacts and continues; on a failed slice it stops. Do not skip the spec.
 
 This tool does **not** replace a licensed engineer. v1 does not check wind, earthquakes, or out-of-plane slenderness.

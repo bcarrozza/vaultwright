@@ -1,0 +1,5 @@
+{
+  "result": "PASS",
+  "span_m": 3.048,
+  "note": "Block already on the ground plane. Max CM displacement ≤ 0.5% of span."
+}

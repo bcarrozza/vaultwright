@@ -1,0 +1,116 @@
+{
+  "requirementsVersion": "1.4",
+  "units": "us-customary",
+  "g": 9.81,
+  "sliceDepth": 1,
+  "sliceZMode": "header-course",
+  "bondPattern": "common",
+  "wallConstruction": "solid",
+  "jointMode": "lime",
+  "loadFactorsOn": false,
+  "soilPreset": "stiff-clay-firm-sand",
+  "frostLineDepth": 0.9144,
+  "foundationDepthDefault": 1.2192,
+  "riseCapMode": "semicircle",
+  "buttressFaceMode": "vertical",
+  "coreBinderDefault": "dry",
+  "unitCatalogId": "us-modular-brick",
+  "orientations": { "ring": "ashlar" },
+  "allowCutCourse": false,
+  "wholeUnitsOnly": false,
+  "vertices": [
+    { "id": "v0", "x": 0, "y": 0 },
+    { "id": "v1", "x": 1.8288, "y": 0 },
+    { "id": "v2", "x": 4.8768, "y": 0 },
+    { "id": "v3", "x": 6.7056, "y": 0 },
+    { "id": "v4", "x": 0, "y": 3.556 },
+    { "id": "v5", "x": 1.8288, "y": 3.556 },
+    { "id": "v6", "x": 4.8768, "y": 3.556 },
+    { "id": "v7", "x": 6.7056, "y": 3.556 },
+    { "id": "vSL", "x": 1.8288, "y": 1.8288 },
+    { "id": "vSR", "x": 4.8768, "y": 1.8288 },
+    { "id": "vEL", "x": 1.6256, "y": 1.8288 },
+    { "id": "vER", "x": 5.08, "y": 1.8288 }
+  ],
+  "edges": [
+    { "id": "eL0", "kind": "line", "start": "v0", "end": "v1", "constraints": ["horizontal"] },
+    { "id": "eL1", "kind": "line", "start": "v1", "end": "v5", "constraints": ["vertical"] },
+    { "id": "eL2", "kind": "line", "start": "v5", "end": "v4", "constraints": ["horizontal"] },
+    { "id": "eL3", "kind": "line", "start": "v4", "end": "v0", "constraints": ["vertical"] },
+    { "id": "eR0", "kind": "line", "start": "v2", "end": "v3", "constraints": ["horizontal"] },
+    { "id": "eR1", "kind": "line", "start": "v3", "end": "v7", "constraints": ["vertical"] },
+    { "id": "eR2", "kind": "line", "start": "v7", "end": "v6", "constraints": ["horizontal"] },
+    { "id": "eR3", "kind": "line", "start": "v6", "end": "v2", "constraints": ["vertical"] },
+    { "id": "eOpenL", "kind": "line", "start": "vSL", "end": "v1", "constraints": ["vertical"] },
+    { "id": "eOpenG", "kind": "line", "start": "v1", "end": "v2", "constraints": ["horizontal"] },
+    { "id": "eOpenR", "kind": "line", "start": "v2", "end": "vSR", "constraints": ["vertical"] },
+    { "id": "eInt", "kind": "arch", "start": "vSL", "end": "vSR", "archFamily": "circular", "rise": 1.524 },
+    { "id": "eExt", "kind": "arch", "start": "vER", "end": "vEL", "archFamily": "circular", "rise": 1.7272 },
+    { "id": "eRadL", "kind": "line", "start": "vEL", "end": "vSL", "constraints": ["horizontal"] },
+    { "id": "eRadR", "kind": "line", "start": "vSR", "end": "vER", "constraints": ["horizontal"] }
+  ],
+  "faces": [
+    {
+      "id": "fLeftWall",
+      "regionKind": "masonryWall",
+      "materialId": "fired-brick",
+      "unitCatalogId": "us-modular-brick",
+      "loop": ["eL0", "eL1", "eL2", "eL3"],
+      "lockedThickness": true
+    },
+    {
+      "id": "fRightWall",
+      "regionKind": "masonryWall",
+      "materialId": "fired-brick",
+      "unitCatalogId": "us-modular-brick",
+      "loop": ["eR0", "eR1", "eR2", "eR3"],
+      "lockedThickness": true
+    },
+    {
+      "id": "fOpening",
+      "regionKind": "archOpening",
+      "loop": ["eOpenL", "eOpenG", "eOpenR", "eInt"]
+    },
+    {
+      "id": "fRing",
+      "regionKind": "archRing",
+      "materialId": "limestone",
+      "unitCatalogId": "ashlar-12",
+      "loop": ["eRadL", "eInt", "eRadR", "eExt"],
+      "ringThickness": 0.2032
+    }
+  ],
+  "loadCases": [
+    { "id": "lc0", "kind": "dead-only" }
+  ],
+  "materials": [
+    {
+      "id": "fired-brick",
+      "name": "Fired brick",
+      "density": 1800,
+      "mu": 0.6,
+      "cohesion": 50000,
+      "allowableCompression": 5000000
+    },
+    {
+      "id": "limestone",
+      "name": "Limestone",
+      "density": 2400,
+      "mu": 0.6,
+      "cohesion": 50000,
+      "allowableCompression": 8000000
+    }
+  ],
+  "archMembers": [
+    {
+      "id": "a0",
+      "faceId": "fRing",
+      "t": 0.2032,
+      "N": 1,
+      "orientation": "ashlar",
+      "Nv": 7,
+      "vaultBond": "ashlar-ring",
+      "r0": 1.524
+    }
+  ]
+}

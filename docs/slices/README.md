@@ -2,7 +2,11 @@
 
 Vertical slices for v1. Product rules stay in REQUIREMENTS.md. Each card is one short loop with a test.
 
-**Do not start until Brian asks to build.** Then S00 only. Next slice after that test is green and STATUS.md is updated.
+**Do not start until Brian asks to build.** Then S00, then each later slice in order.
+
+- Slice test **fails:** update `STATUS.md`, stop. Do not start S(n+1).
+- Slice test **passes:** update `STATUS.md`, compact ([compaction.md](../compaction.md)), continue S(n+1). Do not wait for a new Build prompt.
+- **S13** green: v1 slices complete; stop.
 
 | Slice | Card | Fixture |
 |---|---|---|

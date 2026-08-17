@@ -1,0 +1,28 @@
+{
+  "dryPackJoint_m": 0.002,
+  "limeJoint_m": 0.01,
+  "limeCohesion_Pa": 50000,
+  "noTension": true,
+  "jointModeIndependentOfCoreBinder": true,
+  "tabulatedDry": {
+    "N_N": 10000,
+    "V_N": 6000,
+    "slidesAt_mu": 0.45,
+    "holdsAt_mu": 0.75,
+    "slides": true,
+    "holds": true
+  },
+  "tabulatedCrushing": {
+    "material": "limestone",
+    "allowable_Pa": 8000000,
+    "t_m": 0.2032,
+    "depth_m": 1,
+    "e_m": 0,
+    "N_crush_N": 2000000,
+    "N_ok_N": 1000000,
+    "crushesAt2e6": true,
+    "holdsAt1e6": true
+  },
+  "allowable_limestone_Pa": 8000000,
+  "allowable_brick_Pa": 5000000
+}

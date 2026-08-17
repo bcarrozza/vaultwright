@@ -1,0 +1,14 @@
+{
+  "dwellingLive_psf": 40,
+  "cart_lbf": 2250,
+  "minPatch_in": 12,
+  "minPatch_m": 0.3048,
+  "defaultFactored": true,
+  "cases": ["1.4D", "1.2D+1.6L-uniform", "1.2D+1.6L-asymmetric"],
+  "worstCase": "1.2D+1.6L-asymmetric",
+  "maxPointLoad": {
+    "allGreen_N": 0,
+    "firstAmber_N": 1,
+    "firstRed_N": 1
+  }
+}

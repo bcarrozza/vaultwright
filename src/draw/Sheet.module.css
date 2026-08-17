@@ -9,6 +9,30 @@
   fill: #f4f1ea;
 }
 
+.face {
+  fill: #c4b8a8;
+  stroke: #1a1a1a;
+  stroke-width: 0.02;
+}
+
+.voidFace {
+  fill: #e8eef2;
+  stroke: #1a1a1a;
+  stroke-width: 0.02;
+}
+
+.stone {
+  fill: #d9cbb8;
+  stroke: #5c5346;
+  stroke-width: 0.008;
+}
+
+.edge {
+  fill: none;
+  stroke: #1a1a1a;
+  stroke-width: 0.025;
+}
+
 .ground {
   stroke: #1a1a1a;
   stroke-width: 0.04;
@@ -17,6 +41,21 @@
 .scale {
   stroke: #1a1a1a;
   stroke-width: 0.03;
+}
+
+.thrustGreen {
+  stroke: #2f7d4a;
+  stroke-width: 0.045;
+}
+
+.thrustAmber {
+  stroke: #c49212;
+  stroke-width: 0.045;
+}
+
+.thrustRed {
+  stroke: #b33a3a;
+  stroke-width: 0.045;
 }
 
 .label {

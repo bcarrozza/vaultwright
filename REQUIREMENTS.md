@@ -16,7 +16,7 @@ If a decision changes, **edit this file** (locked table + decision log) rather t
 2. Do not contradict a `DEC-*` row. To change a decision: update that row, add a **Decision log** entry, and fix any section that cites it.
 3. `MUST` / `MUST NOT` / `SHOULD` / `MAY` are binding language.
 4. **v1** is the first shippable desktop web app. **Later** is allowed in the data model only if it does not complicate v1.
-5. Do not implement product code from this file until the user asks to build. Then follow **§23** (vertical slices), one slice per loop.
+5. Do not implement product code from this file until the user asks to build. Then follow **§23** (vertical slices), one slice at a time: **fail → stop; green → compact and continue**.
 
 ---
 
@@ -993,4 +993,4 @@ Do not start until the user asks. Then **one vertical slice at a time**. Cards, 
 | S12 | User-drawn cores | Dry kern = skins; no auto cores |
 | S13 | Schedule + presets | 3D counts; six presets; disclaimer |
 
-Do not start S(n+1) until S(n) tests are green and [STATUS.md](STATUS.md) is updated. If context is near 100k tokens, compact first ([docs/compaction.md](docs/compaction.md)).
+Do not start S(n+1) until S(n) tests are green and [STATUS.md](STATUS.md) is updated. **Fail → stop. Green → compact and continue S(n+1).** If context is near 100k tokens *mid-slice*, compact and resume the same slice ([docs/compaction.md](docs/compaction.md)).
